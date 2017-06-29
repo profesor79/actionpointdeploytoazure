@@ -1,0 +1,1603 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "databaseAccounts_documentdbdev_name": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "IotHubs_iotpredictdev_name": {
+            "defaultValue": "iotpredictdev",
+            "type": "String"
+        },
+        "IotHubs_IotHubS1_dev_name": {
+            "defaultValue": "IotHubS1-dev",
+            "type": "String"
+        },
+        "databaseAccounts_documentdbdev_name_1": {
+            "defaultValue": "documentdbdev",
+            "type": "String"
+        },
+        "namespaces_iotpredictdev_name": {
+            "defaultValue": "iotpredictdev",
+            "type": "String"
+        },
+        "servers_iotpredictwizard_name": {
+            "defaultValue": "iotpredictwizard",
+            "type": "String"
+        },
+        "storageAccounts_iotpredictdev_name": {
+            "defaultValue": "iotpredictdev",
+            "type": "String"
+        },
+        "serverfarms_FreeApp_name": {
+            "defaultValue": "FreeApp",
+            "type": "String"
+        },
+        "serverfarms_WestEuropePlan_name": {
+            "defaultValue": "WestEuropePlan",
+            "type": "String"
+        },
+        "sites_iot_predict_alerting_name": {
+            "defaultValue": "iot-predict-alerting",
+            "type": "String"
+        },
+        "sites_iotpredictwizard_name": {
+            "defaultValue": "iotpredictwizard",
+            "type": "String"
+        },
+        "sites_IoTPredictDashboard_name": {
+            "defaultValue": "IoTPredictDashboard",
+            "type": "String"
+        },
+        "sites_MockDataUsage_name": {
+            "defaultValue": "MockDataUsage",
+            "type": "String"
+        },
+        "AuthorizationRules_RootManageSharedAccessKey_name": {
+            "defaultValue": "iotpredictdev/RootManageSharedAccessKey",
+            "type": "String"
+        },
+        "AuthorizationRules_stream2timeseriesPolicy_name": {
+            "defaultValue": "iotpredictdev/stream2timeseriesPolicy",
+            "type": "String"
+        },
+        "eventhubs_iot_predict_alert_eventhub_name": {
+            "defaultValue": "iotpredictdev/iot-predict-alert-eventhub",
+            "type": "String"
+        },
+        "eventhubs_reporting_name": {
+            "defaultValue": "iotpredictdev/reporting",
+            "type": "String"
+        },
+        "eventhubs_stream2timeseries_name": {
+            "defaultValue": "iotpredictdev/stream2timeseries",
+            "type": "String"
+        },
+        "eventhubs_streamanalyticshub_name": {
+            "defaultValue": "iotpredictdev/streamanalyticshub",
+            "type": "String"
+        },
+        "eventhubs_tsieventhub_name": {
+            "defaultValue": "iotpredictdev/tsieventhub",
+            "type": "String"
+        },
+        "authorizationRules_iot_predict_alert_EventHub_Policy_name": {
+            "defaultValue": "iotpredictdev/iot-predict-alert-eventhub/iot-predict-alert-EventHub-Policy",
+            "type": "String"
+        },
+        "consumergroups_$Default_name": {
+            "defaultValue": "iotpredictdev/iot-predict-alert-eventhub/$Default",
+            "type": "String"
+        },
+        "authorizationRules_ReportingSendPolicy_name": {
+            "defaultValue": "iotpredictdev/reporting/ReportingSendPolicy",
+            "type": "String"
+        },
+        "authorizationRules_iothubroutes_iotpredictdev_name": {
+            "defaultValue": "iotpredictdev/reporting/iothubroutes_iotpredictdev",
+            "type": "String"
+        },
+        "authorizationRules_iothubroutes_IotHubS1_dev_name": {
+            "defaultValue": "iotpredictdev/reporting/iothubroutes_IotHubS1-dev",
+            "type": "String"
+        },
+        "consumergroups_$Default_name_1": {
+            "defaultValue": "iotpredictdev/reporting/$Default",
+            "type": "String"
+        },
+        "authorizationRules_iot_predict_SA2_SAP_name": {
+            "defaultValue": "iotpredictdev/stream2timeseries/iot-predict-SA2-SAP",
+            "type": "String"
+        },
+        "consumergroups_$Default_name_2": {
+            "defaultValue": "iotpredictdev/stream2timeseries/$Default",
+            "type": "String"
+        },
+        "authorizationRules_iothubroutes_IotHubS1_dev_name_1": {
+            "defaultValue": "iotpredictdev/streamanalyticshub/iothubroutes_IotHubS1-dev",
+            "type": "String"
+        },
+        "authorizationRules_eventHubManager_name": {
+            "defaultValue": "iotpredictdev/streamanalyticshub/eventHubManager",
+            "type": "String"
+        },
+        "consumergroups_$Default_name_3": {
+            "defaultValue": "iotpredictdev/streamanalyticshub/$Default",
+            "type": "String"
+        },
+        "authorizationRules_iothubroutes_IotHubS1_dev_name_2": {
+            "defaultValue": "iotpredictdev/tsieventhub/iothubroutes_IotHubS1-dev",
+            "type": "String"
+        },
+        "authorizationRules_allManage_name": {
+            "defaultValue": "iotpredictdev/tsieventhub/allManage",
+            "type": "String"
+        },
+        "consumergroups_$Default_name_4": {
+            "defaultValue": "iotpredictdev/tsieventhub/$Default",
+            "type": "String"
+        },
+        "databases_iotpredictwizard_name": {
+            "defaultValue": "iotpredictwizard/iotpredictwizard",
+            "type": "String"
+        },
+        "databases_master_name": {
+            "defaultValue": "iotpredictwizard/master",
+            "type": "String"
+        },
+        "databases_Timepoint.Bridge_name": {
+            "defaultValue": "iotpredictwizard/Timepoint.Bridge",
+            "type": "String"
+        },
+        "firewallRules_AllowAllWindowsAzureIps_name": {
+            "defaultValue": "iotpredictwizard/AllowAllWindowsAzureIps",
+            "type": "String"
+        },
+        "firewallRules_Client_IP_Addresses_name": {
+            "defaultValue": "iotpredictwizard/Client IP Addresses",
+            "type": "String"
+        },
+        "config_web_name": {
+            "defaultValue": "iot-predict-alerting/web",
+            "type": "String"
+        },
+        "config_web_name_1": {
+            "defaultValue": "iotpredictwizard/web",
+            "type": "String"
+        },
+        "config_web_name_2": {
+            "defaultValue": "IoTPredictDashboard/web",
+            "type": "String"
+        },
+        "config_web_name_3": {
+            "defaultValue": "MockDataUsage/web",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Devices/IotHubs/iotpredictdev'.",
+            "type": "Microsoft.Devices/IotHubs",
+            "sku": {
+                "name": "F1",
+                "tier": "Free",
+                "capacity": 1
+            },
+            "name": "[parameters('IotHubs_iotpredictdev_name')]",
+            "apiVersion": "2016-02-03",
+            "location": "northeurope",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "ipFilterRules": [],
+                "eventHubEndpoints": {
+                    "events": {
+                        "retentionTimeInDays": 1,
+                        "partitionCount": 2,
+                        "partitionIds": [
+                            "0",
+                            "1"
+                        ],
+                        "path": "iothub-ehub-iotpredict-136185-97d87c57f2",
+                        "endpoint": "sb://ihsuproddbres059dednamespace.servicebus.windows.net/"
+                    },
+                    "operationsMonitoringEvents": {
+                        "retentionTimeInDays": 1,
+                        "partitionCount": 2,
+                        "partitionIds": [
+                            "0",
+                            "1"
+                        ],
+                        "path": "iothub-ehub-iotpredict-136185-d2e7590928",
+                        "endpoint": "sb://ihsuproddbres059dednamespace.servicebus.windows.net/"
+                    }
+                },
+                "routing": {
+                    "endpoints": {
+                        "serviceBusQueues": [],
+                        "serviceBusTopics": [],
+                        "eventHubs": [
+                            {
+                                "connectionString": "[concat('Endpoint=sb://', parameters('IotHubs_iotpredictdev_name'),'.servicebus.windows.net:5671/;SharedAccessKeyName=iothubroutes_', parameters('IotHubs_iotpredictdev_name'),';SharedAccessKey=****;EntityPath=reporting')]",
+                                "name": "testendpoint",
+                                "id": "4463f9de-cd18-4ef8-8da7-6747000ec1f9",
+                                "subscriptionId": "be300e5f-884a-4e67-9789-773993dd3439",
+                                "resourceGroup": "api-iotpredict-dev"
+                            }
+                        ]
+                    },
+                    "routes": [],
+                    "fallbackRoute": {
+                        "name": "$fallback",
+                        "source": "DeviceMessages",
+                        "condition": "true",
+                        "endpointNames": [
+                            "events"
+                        ],
+                        "isEnabled": true
+                    }
+                },
+                "storageEndpoints": {
+                    "$default": {
+                        "sasTtlAsIso8601": "PT1H",
+                        "connectionString": "",
+                        "containerName": ""
+                    }
+                },
+                "enableFileUploadNotifications": false,
+                "cloudToDevice": {
+                    "maxDeliveryCount": 10,
+                    "defaultTtlAsIso8601": "PT1H",
+                    "feedback": {
+                        "lockDurationAsIso8601": "PT1M",
+                        "ttlAsIso8601": "PT1H",
+                        "maxDeliveryCount": 10
+                    }
+                },
+                "operationsMonitoringProperties": {
+                    "events": {
+                        "None": "None",
+                        "Connections": "None",
+                        "DeviceTelemetry": "None",
+                        "C2DCommands": "None",
+                        "DeviceIdentityOperations": "None",
+                        "FileUploadOperations": "None",
+                        "Routes": "None"
+                    }
+                },
+                "features": "None"
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Devices/IotHubs/IotHubS1-dev'.",
+            "type": "Microsoft.Devices/IotHubs",
+            "sku": {
+                "name": "S1",
+                "tier": "Standard",
+                "capacity": 1
+            },
+            "name": "[parameters('IotHubs_IotHubS1_dev_name')]",
+            "apiVersion": "2016-02-03",
+            "location": "northeurope",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "ipFilterRules": [],
+                "eventHubEndpoints": {
+                    "events": {
+                        "retentionTimeInDays": 1,
+                        "partitionCount": 4,
+                        "partitionIds": [
+                            "0",
+                            "1",
+                            "2",
+                            "3"
+                        ],
+                        "path": "[concat(parameters('IotHubs_IotHubS1_dev_name'),'iothubs1-dev', parameters('IotHubs_IotHubS1_dev_name'))]",
+                        "endpoint": "sb://iothub-ns-iothubs1-d-160040-b9133e772f.servicebus.windows.net/"
+                    },
+                    "operationsMonitoringEvents": {
+                        "retentionTimeInDays": 1,
+                        "partitionCount": 4,
+                        "partitionIds": [
+                            "0",
+                            "1",
+                            "2",
+                            "3"
+                        ],
+                        "path": "[concat(parameters('IotHubs_IotHubS1_dev_name'),'iothubs1-dev-operationmonitoring')]",
+                        "endpoint": "sb://iothub-ns-iothubs1-d-160040-b9133e772f.servicebus.windows.net/"
+                    }
+                },
+                "routing": {
+                    "endpoints": {
+                        "serviceBusQueues": [],
+                        "serviceBusTopics": [],
+                        "eventHubs": []
+                    },
+                    "routes": [],
+                    "fallbackRoute": {
+                        "name": "$fallback",
+                        "source": "DeviceMessages",
+                        "condition": "true",
+                        "endpointNames": [
+                            "events"
+                        ],
+                        "isEnabled": true
+                    }
+                },
+                "storageEndpoints": {
+                    "$default": {
+                        "sasTtlAsIso8601": "PT1H",
+                        "connectionString": "",
+                        "containerName": ""
+                    }
+                },
+                "enableFileUploadNotifications": false,
+                "cloudToDevice": {
+                    "maxDeliveryCount": 10,
+                    "defaultTtlAsIso8601": "PT1H",
+                    "feedback": {
+                        "lockDurationAsIso8601": "PT1M",
+                        "ttlAsIso8601": "PT1H",
+                        "maxDeliveryCount": 10
+                    }
+                },
+                "operationsMonitoringProperties": {
+                    "events": {
+                        "None": "None",
+                        "Connections": "None",
+                        "DeviceTelemetry": "None",
+                        "C2DCommands": "None",
+                        "DeviceIdentityOperations": "None",
+                        "FileUploadOperations": "None",
+                        "Routes": "None"
+                    }
+                },
+                "features": "None"
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.DocumentDB/databaseAccounts/documentdbdev'.",
+            "type": "Microsoft.DocumentDB/databaseAccounts",
+            "kind": "GlobalDocumentDB",
+            "name": "[parameters('databaseAccounts_documentdbdev_name_1')]",
+            "apiVersion": "2015-04-08",
+            "location": "North Europe",
+            "tags": {
+                "defaultExperience": "DocumentDB"
+            },
+            "scale": null,
+            "properties": {
+                "databaseAccountOfferType": "Standard",
+                "consistencyPolicy": {
+                    "defaultConsistencyLevel": "Session",
+                    "maxIntervalInSeconds": 5,
+                    "maxStalenessPrefix": 100
+                },
+                "name": "[parameters('databaseAccounts_documentdbdev_name')]"
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev'.",
+            "type": "Microsoft.EventHub/namespaces",
+            "sku": {
+                "name": "Basic",
+                "tier": "Basic"
+            },
+            "kind": "EventHub",
+            "name": "[parameters('namespaces_iotpredictdev_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "status": "Active",
+                "createdAt": "2017-03-28T11:01:41.933Z",
+                "serviceBusEndpoint": "[concat('https://', parameters('namespaces_iotpredictdev_name'),'.servicebus.windows.net:443/')]",
+                "enabled": true,
+                "updatedAt": "2017-03-28T11:02:08.153Z"
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Sql/servers/iotpredictwizard'.",
+            "type": "Microsoft.Sql/servers",
+            "kind": "v12.0",
+            "name": "[parameters('servers_iotpredictwizard_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "administratorLogin": "ServerAdmin",
+                "administratorLoginPassword": null,
+                "version": "12.0"
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotpredict-dev/providers/Microsoft.Storage/storageAccounts/iotpredictdev'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_RAGRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_iotpredictdev_name')]",
+            "apiVersion": "2016-01-01",
+            "location": "northeurope",
+            "tags": {},
+            "scale": null,
+            "properties": {},
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Web/serverfarms/FreeApp'.",
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "D1",
+                "tier": "Shared",
+                "size": "D1",
+                "family": "D",
+                "capacity": 0
+            },
+            "kind": "app",
+            "name": "[parameters('serverfarms_FreeApp_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "name": "[parameters('serverfarms_FreeApp_name')]",
+                "numberOfWorkers": 0
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Web/serverfarms/WestEuropePlan'.",
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "Y1",
+                "tier": "Dynamic",
+                "size": "Y1",
+                "family": "Y",
+                "capacity": 0
+            },
+            "kind": "functionapp",
+            "name": "[parameters('serverfarms_WestEuropePlan_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "name": "[parameters('serverfarms_WestEuropePlan_name')]",
+                "numberOfWorkers": 0
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Web/sites/iot-predict-alerting'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "functionapp",
+            "name": "[parameters('sites_iot_predict_alerting_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "name": "[parameters('sites_iot_predict_alerting_name')]",
+                "hostNames": [
+                    "iot-predict-alerting.azurewebsites.net"
+                ],
+                "enabledHostNames": [
+                    "iot-predict-alerting.azurewebsites.net",
+                    "iot-predict-alerting.scm.azurewebsites.net"
+                ],
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_iot_predict_alerting_name'),'.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    },
+                    {
+                        "name": "[concat(parameters('sites_iot_predict_alerting_name'),'.scm.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_WestEuropePlan_name'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_WestEuropePlan_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Web/sites/iotpredictwizard'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "app",
+            "name": "[parameters('sites_iotpredictwizard_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "tags": {
+                "hidden-related:/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.Web/serverfarms/FreeApp": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "name": "[parameters('sites_iotpredictwizard_name')]",
+                "hostNames": [
+                    "iotpredictwizard.azurewebsites.net"
+                ],
+                "enabledHostNames": [
+                    "iotpredictwizard.azurewebsites.net",
+                    "iotpredictwizard.scm.azurewebsites.net"
+                ],
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_iotpredictwizard_name'),'.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    },
+                    {
+                        "name": "[concat(parameters('sites_iotpredictwizard_name'),'.scm.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_FreeApp_name'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_FreeApp_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Web/sites/IoTPredictDashboard'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "app",
+            "name": "[parameters('sites_IoTPredictDashboard_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "tags": {
+                "hidden-related:/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.Web/serverfarms/FreeApp": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "name": "[parameters('sites_IoTPredictDashboard_name')]",
+                "hostNames": [
+                    "iotpredictdashboard.azurewebsites.net"
+                ],
+                "enabledHostNames": [
+                    "iotpredictdashboard.azurewebsites.net",
+                    "iotpredictdashboard.scm.azurewebsites.net"
+                ],
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_IoTPredictDashboard_name'),'iotpredictdashboard.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    },
+                    {
+                        "name": "[concat(parameters('sites_IoTPredictDashboard_name'),'iotpredictdashboard.scm.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_FreeApp_name'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_FreeApp_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Web/sites/MockDataUsage'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "app",
+            "name": "[parameters('sites_MockDataUsage_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "tags": {
+                "hidden-related:/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.Web/serverfarms/FreeApp": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "name": "[parameters('sites_MockDataUsage_name')]",
+                "hostNames": [
+                    "mockdatausage.azurewebsites.net"
+                ],
+                "enabledHostNames": [
+                    "mockdatausage.azurewebsites.net",
+                    "mockdatausage.scm.azurewebsites.net"
+                ],
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_MockDataUsage_name'),'mockdatausage.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    },
+                    {
+                        "name": "[concat(parameters('sites_MockDataUsage_name'),'mockdatausage.scm.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_FreeApp_name'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_FreeApp_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/AuthorizationRules/RootManageSharedAccessKey'.",
+            "type": "Microsoft.EventHub/namespaces/AuthorizationRules",
+            "name": "[parameters('AuthorizationRules_RootManageSharedAccessKey_name')]",
+            "apiVersion": "2015-08-01",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Listen",
+                    "Manage",
+                    "Send"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/AuthorizationRules/stream2timeseriesPolicy'.",
+            "type": "Microsoft.EventHub/namespaces/AuthorizationRules",
+            "name": "[parameters('AuthorizationRules_stream2timeseriesPolicy_name')]",
+            "apiVersion": "2015-08-01",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Manage",
+                    "Send",
+                    "Listen"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/iot-predict-alert-eventhub'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs",
+            "name": "[parameters('eventhubs_iot_predict_alert_eventhub_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "messageRetentionInDays": 1,
+                "status": "Active",
+                "createdAt": "2017-05-25T16:38:57.507",
+                "updatedAt": "2017-05-25T16:39:52.5",
+                "partitionCount": 2,
+                "partitionIds": [
+                    "0",
+                    "1"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/reporting'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs",
+            "name": "[parameters('eventhubs_reporting_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "messageRetentionInDays": 1,
+                "status": "Active",
+                "createdAt": "2017-04-06T10:22:36.42",
+                "updatedAt": "2017-05-12T13:12:56.83",
+                "partitionCount": 2,
+                "partitionIds": [
+                    "0",
+                    "1"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/stream2timeseries'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs",
+            "name": "[parameters('eventhubs_stream2timeseries_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "messageRetentionInDays": 1,
+                "status": "Active",
+                "createdAt": "2017-05-23T09:22:44.203",
+                "updatedAt": "2017-05-24T14:13:43.24",
+                "partitionCount": 2,
+                "partitionIds": [
+                    "0",
+                    "1"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/streamanalyticshub'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs",
+            "name": "[parameters('eventhubs_streamanalyticshub_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "messageRetentionInDays": 1,
+                "status": "Active",
+                "createdAt": "2017-05-12T13:23:24.36",
+                "updatedAt": "2017-05-23T13:56:22.767",
+                "partitionCount": 2,
+                "partitionIds": [
+                    "0",
+                    "1"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/tsieventhub'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs",
+            "name": "[parameters('eventhubs_tsieventhub_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "messageRetentionInDays": 1,
+                "status": "Active",
+                "createdAt": "2017-05-12T13:23:53.393",
+                "updatedAt": "2017-05-23T16:29:41.343",
+                "partitionCount": 2,
+                "partitionIds": [
+                    "0",
+                    "1"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/iot-predict-alert-eventhub/authorizationRules/iot-predict-alert-EventHub-Policy'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules",
+            "name": "[parameters('authorizationRules_iot_predict_alert_EventHub_Policy_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Manage",
+                    "Send",
+                    "Listen"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventhubs_iot_predict_alert_eventhub_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/iot-predict-alert-eventhub/consumergroups/$Default'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/consumergroups",
+            "name": "[parameters('consumergroups_$Default_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "createdAt": "2017-05-25T16:38:58.6295604",
+                "updatedAt": "2017-05-25T16:38:58.6295604"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventhubs_iot_predict_alert_eventhub_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/reporting/authorizationRules/ReportingSendPolicy'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules",
+            "name": "[parameters('authorizationRules_ReportingSendPolicy_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Send"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventhubs_reporting_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/reporting/authorizationRules/iothubroutes_iotpredictdev'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules",
+            "name": "[parameters('authorizationRules_iothubroutes_iotpredictdev_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Send"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventhubs_reporting_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/reporting/authorizationRules/iothubroutes_IotHubS1-dev'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules",
+            "name": "[parameters('authorizationRules_iothubroutes_IotHubS1_dev_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Send"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventhubs_reporting_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/reporting/consumergroups/$Default'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/consumergroups",
+            "name": "[parameters('consumergroups_$Default_name_1')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "createdAt": "2017-04-06T10:22:35.665724",
+                "updatedAt": "2017-04-06T10:22:35.665724"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventhubs_reporting_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/stream2timeseries/authorizationRules/iot-predict-SA2-SAP'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules",
+            "name": "[parameters('authorizationRules_iot_predict_SA2_SAP_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Manage",
+                    "Send",
+                    "Listen"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventhubs_stream2timeseries_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/stream2timeseries/consumergroups/$Default'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/consumergroups",
+            "name": "[parameters('consumergroups_$Default_name_2')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "createdAt": "2017-05-23T09:22:57.5732671",
+                "updatedAt": "2017-05-23T09:22:57.5732671"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventhubs_stream2timeseries_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/streamanalyticshub/authorizationRules/iothubroutes_IotHubS1-dev'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules",
+            "name": "[parameters('authorizationRules_iothubroutes_IotHubS1_dev_name_1')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Send"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventhubs_streamanalyticshub_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/streamanalyticshub/authorizationRules/eventHubManager'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules",
+            "name": "[parameters('authorizationRules_eventHubManager_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Manage",
+                    "Send",
+                    "Listen"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventhubs_streamanalyticshub_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/streamanalyticshub/consumergroups/$Default'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/consumergroups",
+            "name": "[parameters('consumergroups_$Default_name_3')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "createdAt": "2017-05-12T13:23:24.9640928",
+                "updatedAt": "2017-05-12T13:23:24.9640928"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventhubs_streamanalyticshub_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/tsieventhub/authorizationRules/iothubroutes_IotHubS1-dev'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules",
+            "name": "[parameters('authorizationRules_iothubroutes_IotHubS1_dev_name_2')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Send"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventhubs_tsieventhub_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/tsieventhub/authorizationRules/allManage'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules",
+            "name": "[parameters('authorizationRules_allManage_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Manage",
+                    "Send",
+                    "Listen"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventhubs_tsieventhub_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.EventHub/namespaces/iotpredictdev/eventhubs/tsieventhub/consumergroups/$Default'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/consumergroups",
+            "name": "[parameters('consumergroups_$Default_name_4')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "createdAt": "2017-05-12T13:23:56.8176924",
+                "updatedAt": "2017-05-12T13:23:56.8176924"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_iotpredictdev_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('eventhubs_tsieventhub_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Sql/servers/iotpredictwizard/databases/iotpredictwizard'.",
+            "type": "Microsoft.Sql/servers/databases",
+            "kind": "v12.0,user",
+            "name": "[parameters('databases_iotpredictwizard_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "databaseId": "8f9dca47-9092-41a6-9a3f-5d544d81512f",
+                "edition": "Standard",
+                "status": "Online",
+                "serviceLevelObjective": "S0",
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "268435456000",
+                "creationDate": "2017-05-25T14:13:09.453Z",
+                "currentServiceObjectiveId": "f1173c43-91bd-4aaa-973c-54e79e15235b",
+                "requestedServiceObjectiveId": "f1173c43-91bd-4aaa-973c-54e79e15235b",
+                "requestedServiceObjectiveName": "S0",
+                "sampleName": null,
+                "defaultSecondaryLocation": "West Europe",
+                "earliestRestoreDate": "2017-05-25T14:23:32.333Z",
+                "elasticPoolName": null,
+                "containmentState": 2,
+                "readScale": "Disabled",
+                "failoverGroupId": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_iotpredictwizard_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Sql/servers/iotpredictwizard/databases/master'.",
+            "type": "Microsoft.Sql/servers/databases",
+            "kind": "v12.0,system",
+            "name": "[parameters('databases_master_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "databaseId": "10b6e713-fa80-41fd-807d-16dceb15ed6d",
+                "edition": "System",
+                "status": "Online",
+                "serviceLevelObjective": "System1",
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "32212254720",
+                "creationDate": "2017-04-04T16:09:57.883Z",
+                "currentServiceObjectiveId": "c99ac918-dbea-463f-a475-16ec020fdc12",
+                "requestedServiceObjectiveId": "c99ac918-dbea-463f-a475-16ec020fdc12",
+                "requestedServiceObjectiveName": "System1",
+                "sampleName": null,
+                "defaultSecondaryLocation": "West Europe",
+                "earliestRestoreDate": null,
+                "elasticPoolName": null,
+                "containmentState": 2,
+                "readScale": "Disabled",
+                "failoverGroupId": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_iotpredictwizard_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Sql/servers/iotpredictwizard/databases/Timepoint.Bridge'.",
+            "type": "Microsoft.Sql/servers/databases",
+            "kind": "v12.0,user",
+            "name": "[parameters('databases_Timepoint.Bridge_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "databaseId": "8b590402-d440-41c4-a2f0-a218acffe906",
+                "edition": "Standard",
+                "status": "Online",
+                "serviceLevelObjective": "S2",
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "268435456000",
+                "creationDate": "2017-06-16T07:39:59.687Z",
+                "currentServiceObjectiveId": "455330e1-00cd-488b-b5fa-177c226f28b7",
+                "requestedServiceObjectiveId": "455330e1-00cd-488b-b5fa-177c226f28b7",
+                "requestedServiceObjectiveName": "S2",
+                "sampleName": null,
+                "defaultSecondaryLocation": "West Europe",
+                "earliestRestoreDate": "2017-06-16T07:50:24.16Z",
+                "elasticPoolName": null,
+                "containmentState": 2,
+                "readScale": "Disabled",
+                "failoverGroupId": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_iotpredictwizard_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Sql/servers/iotpredictwizard/firewallRules/AllowAllWindowsAzureIps'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[parameters('firewallRules_AllowAllWindowsAzureIps_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "startIpAddress": "0.0.0.0",
+                "endIpAddress": "0.0.0.0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_iotpredictwizard_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Sql/servers/iotpredictwizard/firewallRules/Client IP Addresses'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[parameters('firewallRules_Client_IP_Addresses_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "scale": null,
+            "properties": {
+                "startIpAddress": "185.61.1.0",
+                "endIpAddress": "185.61.1.255"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_iotpredictwizard_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Web/sites/iot-predict-alerting/config/web'.",
+            "type": "Microsoft.Web/sites/config",
+            "name": "[parameters('config_web_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": "VS2012",
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$iot-predict-alerting",
+                "publishingPassword": null,
+                "appSettings": null,
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "None",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": 0,
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": 1,
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": {
+                    "triggers": null,
+                    "actions": null
+                },
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": {
+                    "allowedOrigins": [
+                        "https://functions.azure.com",
+                        "https://functions-staging.azure.com",
+                        "https://functions-next.azure.com"
+                    ]
+                },
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "ipSecurityRestrictions": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_iot_predict_alerting_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Web/sites/iotpredictwizard/config/web'.",
+            "type": "Microsoft.Web/sites/config",
+            "name": "[parameters('config_web_name_1')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "tags": {
+                "hidden-related:/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.Web/serverfarms/FreeApp": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": "VS2015",
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$iotpredictwizard",
+                "publishingPassword": null,
+                "appSettings": null,
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "None",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": 0,
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": 1,
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": {
+                    "triggers": null,
+                    "actions": null
+                },
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": null,
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "ipSecurityRestrictions": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_iotpredictwizard_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Web/sites/IoTPredictDashboard/config/web'.",
+            "type": "Microsoft.Web/sites/config",
+            "name": "[parameters('config_web_name_2')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "tags": {
+                "hidden-related:/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.Web/serverfarms/FreeApp": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": null,
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$IoTPredictDashboard",
+                "publishingPassword": null,
+                "appSettings": null,
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "None",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": 0,
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": 1,
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": null,
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": null,
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "ipSecurityRestrictions": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_IoTPredictDashboard_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourceGroups/api-iotPredict-dev/providers/Microsoft.Web/sites/MockDataUsage/config/web'.",
+            "type": "Microsoft.Web/sites/config",
+            "name": "[parameters('config_web_name_3')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "tags": {
+                "hidden-related:/subscriptions/be300e5f-884a-4e67-9789-773993dd3439/resourcegroups/api-iotPredict-dev/providers/Microsoft.Web/serverfarms/FreeApp": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": null,
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$MockDataUsage",
+                "publishingPassword": null,
+                "appSettings": null,
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "None",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": 0,
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": 1,
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": null,
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": null,
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "ipSecurityRestrictions": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_MockDataUsage_name'))]"
+            ]
+        }
+    ]
+}
